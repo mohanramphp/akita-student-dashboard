@@ -1,0 +1,11 @@
+.login {
+    padding-top: 10%;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+}
+
+input.ng-invalid.ng-dirty {
+    border: 1px solid red;
+}

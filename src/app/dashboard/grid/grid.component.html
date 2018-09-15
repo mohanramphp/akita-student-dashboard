@@ -1,0 +1,44 @@
+<div class="col-sm">
+  <div class="card rounded-0">
+    <div class="card-header">
+      Grid<button class="btn btn-sm btn-primary pull-right" (click)="add.emit()">Add</button>
+    </div>
+    <div class="card-body">
+      <p-table [value]="students$ | async">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Name</th>
+            <th>Sex</th>
+            <th>Standard</th>
+            <th>Quaterly %</th>
+            <th>Halfyearly %</th>
+            <th>Annual %</th>
+            <th>Action</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-student>
+          <tr>
+            <td>{{student.name}}</td>
+            <td>{{student.sex}}</td>
+            <td>{{student.standard}}</td>
+            <td>{{student.quarterlyScore}}/100</td>
+            <td>{{student.halfyearlyScore}}/100</td>
+            <td>{{student.annualScore}}/100</td>
+            <td>
+              <button class="btn btn-sm btn-link" (click)="edit.emit(student.id)">Edit</button>
+              &nbsp;|&nbsp;
+              <button class="btn btn-sm btn-link" (click)="delete.emit(student.id)">Delete</button>
+            </td>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage" let-columns>
+          <tr>
+            <td [attr.colspan]="7">
+              No records found
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>

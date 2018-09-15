@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row login">
+    <div class="col-md-6 mx-auto">
+      <!-- form card login -->
+      <div class="card rounded-0">
+        <div class="card-header">
+          <h5 class="mb-0">Login</h5>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control form-control-sm rounded-0" name="username" formControlName="username" placeholder="admin">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control form-control-sm rounded-0" name="password" formControlName="password" placeholder="admin">
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm float-right" id="btnLogin" [disabled]="formGroup.invalid">Login</button>
+          </form>
+        </div>
+        <!--/card-block-->
+      </div>
+      <!-- /form card login -->
+    </div>
+  </div>
+  <!--/row-->
+</div>
+<!--/container-->
