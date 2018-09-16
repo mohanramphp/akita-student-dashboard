@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(private ngZone: NgZone) {
 
     if (!environment.production) {
-      akitaDevtools(ngZone);
+      akitaDevtools(ngZone); // enable the redux dev tool to handle Akita's state
     }
 
   }
