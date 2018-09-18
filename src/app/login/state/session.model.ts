@@ -8,11 +8,6 @@ export interface Session {
     user: User | null;
 }
 
-/* {
-    firstName: 'Mohan Ram',
-    lastName: 'Ratnakumar',
-    token: 'ab123abde'
-} */
-export const initialSessionState: Session = {
-    user: null
-};
+export function createSession(user: User) {
+    return { ...user };
+}

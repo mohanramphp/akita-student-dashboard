@@ -1,7 +1,15 @@
 import { Injectable } from '@angular/core';
-import { Store, StoreConfig } from '@datorama/akita';
+import { ID, Store, StoreConfig } from '@datorama/akita';
 
-import { Session, initialSessionState, User } from './session.model';
+import { Session, User, createSession } from './session.model';
+
+export interface SessionState extends Session { } // if state need additional param declare here
+
+export function createInitialState(): SessionState {
+    return {
+        user: null
+    };
+}
 
 @Injectable({
     providedIn: 'root'
@@ -10,14 +18,15 @@ import { Session, initialSessionState, User } from './session.model';
 export class SessionStore extends Store<Session> {
 
     constructor() {
-        super(initialSessionState);
+        super(createInitialState());
     }
 
-    login(user: User) {
+    login(data: User) {
+        const user = createSession(data);
         this.update({ user });
     }
 
     logout() {
-        this.update(initialSessionState);
+        this.update(createInitialState());
     }
 }
