@@ -1,6 +1,4 @@
-import { Component, NgZone } from '@angular/core';
-import { akitaDevtools } from '@datorama/akita';
-import { environment } from '../environments/environment';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +7,5 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent {
 
-  constructor(private ngZone: NgZone) {
-
-    if (!environment.production) {
-      akitaDevtools(ngZone); // enable the redux dev tool to handle Akita's state
-    }
-
-  }
+  constructor() { }
 }

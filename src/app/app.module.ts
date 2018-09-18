@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartModule } from 'primeng/chart';
 import { TableModule } from 'primeng/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AkitaNgDevtools } from '@datorama/akita-ngdevtools';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,7 @@ import { NavBarComponent } from './dashboard/nav-bar/nav-bar.component';
 import { ChartComponent } from './dashboard/chart/chart.component';
 import { GridComponent } from './dashboard/grid/grid.component';
 import { FormComponent } from './dashboard/form/form.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { FormComponent } from './dashboard/form/form.component';
     FormComponent
   ],
   imports: [
+    environment.production ? [] : AkitaNgDevtools.forRoot(),
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
