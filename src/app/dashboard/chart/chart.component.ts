@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UIChart } from 'primeng/chart';
+
 @Component({
   selector: 'app-chart',
   templateUrl: './chart.component.html',

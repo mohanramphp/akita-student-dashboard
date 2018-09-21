@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { createStudent, StudentService, StudentQuery, Student } from './state/index';
 import { ID } from '@datorama/akita';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,6 +11,7 @@ import { ID } from '@datorama/akita';
 export class DashboardComponent implements OnInit {
 
   formData: Student;
+  students$: Observable<Array<Student>>;
 
   constructor(
     private studentService: StudentService,
@@ -18,14 +20,16 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.studentService.getStudents().subscribe();
+    this.students$ = this.studentQuery.selectAll();
   }
+
   onAdd() {
     this.nullifyFormData();
     setTimeout(() => this.formData = createStudent({}));
   }
   onEdit(id: ID) {
     this.nullifyFormData();
-    setTimeout(() => this.formData = this.studentQuery.getStudent(id));
+    setTimeout(() => this.formData = this.studentQuery.getEntity(id));
   }
 
   onDelete(id: ID) {
