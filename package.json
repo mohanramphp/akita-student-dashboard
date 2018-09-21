@@ -5,7 +5,7 @@
     "ng": "ng",
     "prestart": "npm install",
     "start": "ng serve",
-    "build": "ng build --prod --build-optimizer --base-href /",
+    "build": "ng build --prod --build-optimizer --base-href /akita-student-dashboard/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
