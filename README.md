@@ -1,4 +1,5 @@
 # AkitaStudentDashboard
+
 This project helps to understand the all the functional features of Akita State Management Framework.
 
 [click here for a demo](https://mohanramphp.github.io/akita-student-dashboard/)

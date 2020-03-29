@@ -47,9 +47,9 @@ const students: Array<Student> = [
   providedIn: 'root'
 })
 export class StudentDataService {
+  constructor() {}
 
-  constructor() { }
-
+  /** simulates the response of an HTTP request fetching the students */
   getStudents(): Observable<Array<Student>> {
     return timer(200).pipe(mapTo(students));
   }

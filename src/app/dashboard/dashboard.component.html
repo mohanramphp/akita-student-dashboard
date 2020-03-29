@@ -1,17 +1,16 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-sm">
-            <app-nav-bar></app-nav-bar>
-        </div>
+  <div class="row">
+    <div class="col-sm">
+      <app-nav-bar></app-nav-bar>
     </div>
-    <div class="row">
-        <app-chart [studentsGraphData$]="studentQuery.studentsGraphData$"></app-chart>
-    </div>
-    <div class="row">
-        <app-grid [students$]="students$" (add)="onAdd()" (edit)="onEdit($event)" (delete)="onDelete($event)"></app-grid>
-    </div>
-    <div class="row">
-        <app-form *ngIf="formData" [formData]="formData" (updateformData)="updateformData($event)"></app-form>
-    </div>
+  </div>
+  <div class="row">
+    <app-chart [studentsGraphData$]="studentQuery.studentsGraphData$"></app-chart>
+  </div>
+  <div class="row">
+    <app-grid [students$]="students$" (add)="onAdd()" (edit)="onEdit($event)" (delete)="onDelete($event)"></app-grid>
+  </div>
+  <div class="row">
+    <app-form *ngIf="formData" [formData]="formData" (updateformData)="updateformData($event)"></app-form>
+  </div>
 </div>
-<!-- <p-chart type="bar" [data]="data"></p-chart> -->

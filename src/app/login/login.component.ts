@@ -11,10 +11,7 @@ import { LoginService } from './login.service';
 export class LoginComponent implements OnInit {
   formGroup: FormGroup;
 
-  constructor(
-    private fb: FormBuilder,
-    private loginService: LoginService
-  ) { }
+  constructor(private fb: FormBuilder, private loginService: LoginService) {}
 
   ngOnInit() {
     this.createForm();
@@ -33,11 +30,10 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.loginService.login(this.formGroup.value).subscribe({
-      error: (e) => {
+      error: e => {
         alert(e);
         this.resetForm();
       }
     });
   }
-
 }
