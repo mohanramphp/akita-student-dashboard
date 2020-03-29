@@ -9,14 +9,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
   formData: Student;
   students$: Observable<Array<Student>>;
 
-  constructor(
-    private studentService: StudentService,
-    public studentQuery: StudentQuery
-  ) { }
+  constructor(private studentService: StudentService, public studentQuery: StudentQuery) {}
 
   ngOnInit() {
     this.studentService.getStudents().subscribe();
@@ -25,11 +21,11 @@ export class DashboardComponent implements OnInit {
 
   onAdd() {
     this.nullifyFormData();
-    setTimeout(() => this.formData = createStudent({}));
+    setTimeout(() => (this.formData = createStudent({})));
   }
   onEdit(id: ID) {
     this.nullifyFormData();
-    setTimeout(() => this.formData = this.studentQuery.getEntity(id));
+    setTimeout(() => (this.formData = this.studentQuery.getEntity(id)));
   }
 
   onDelete(id: ID) {
@@ -47,5 +43,4 @@ export class DashboardComponent implements OnInit {
   nullifyFormData() {
     this.formData = null;
   }
-
 }

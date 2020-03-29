@@ -18,12 +18,12 @@
         </ng-template>
         <ng-template pTemplate="body" let-student>
           <tr>
-            <td>{{student.name}}</td>
-            <td>{{student.sex}}</td>
-            <td>{{student.standard}}</td>
-            <td>{{student.quarterlyScore}}/100</td>
-            <td>{{student.halfyearlyScore}}/100</td>
-            <td>{{student.annualScore}}/100</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.sex }}</td>
+            <td>{{ student.standard }}</td>
+            <td>{{ student.quarterlyScore }}/100</td>
+            <td>{{ student.halfyearlyScore }}/100</td>
+            <td>{{ student.annualScore }}/100</td>
             <td>
               <button class="btn btn-sm btn-link" (click)="edit.emit(student.id)">Edit</button>
               &nbsp;|&nbsp;

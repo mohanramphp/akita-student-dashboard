@@ -1,7 +1,4 @@
-import {
-  Component, Input, OnInit,
-  ChangeDetectionStrategy, Output, EventEmitter
-} from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { ID } from '@datorama/akita';
 import { Observable } from 'rxjs';
 import { Student } from '../state/student.model';
@@ -18,10 +15,9 @@ export class GridComponent implements OnInit {
   @Output() edit: EventEmitter<ID> = new EventEmitter<ID>();
   @Output() delete: EventEmitter<ID> = new EventEmitter<ID>();
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.students$.subscribe(d => console.log(d));
   }
-
 }

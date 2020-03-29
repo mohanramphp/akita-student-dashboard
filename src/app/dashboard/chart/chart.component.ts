@@ -9,12 +9,13 @@ import { UIChart } from 'primeng/chart';
   changeDetection: ChangeDetectionStrategy.Default
 })
 export class ChartComponent implements OnInit {
-
-  @ViewChild(UIChart) uiChart: UIChart;
-  @Input() studentsGraphData$: Observable<{ [key: string]: Array<string | number> }>;
+  @ViewChild(UIChart, { static: true }) uiChart: UIChart;
+  @Input() studentsGraphData$: Observable<{
+    [key: string]: Array<string | number>;
+  }>;
   data: any;
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
     this.studentsGraphData$.subscribe(({ names, quarterly, halfyearly, annual }) => {
@@ -45,5 +46,4 @@ export class ChartComponent implements OnInit {
       this.uiChart.refresh();
     });
   }
-
 }

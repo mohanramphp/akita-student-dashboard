@@ -9,14 +9,11 @@ import { Student } from '../state/index';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-
   @Input() formData: Student;
   formGroup: FormGroup;
   @Output() updateformData: EventEmitter<Student> = new EventEmitter<Student>();
 
-  constructor(
-    private fb: FormBuilder
-  ) { }
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.createForm();
@@ -30,7 +27,7 @@ export class FormComponent implements OnInit {
       standard: [this.formData.standard, Validators.required],
       quarterlyScore: [this.formData.quarterlyScore],
       halfyearlyScore: [this.formData.halfyearlyScore],
-      annualScore: [this.formData.annualScore],
+      annualScore: [this.formData.annualScore]
     });
   }
 
@@ -48,5 +45,4 @@ export class FormComponent implements OnInit {
     console.log(this.formGroup.value);
     this.updateformData.emit(this.formGroup.value);
   }
-
 }

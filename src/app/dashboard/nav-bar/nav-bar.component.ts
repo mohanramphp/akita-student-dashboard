@@ -8,19 +8,13 @@ import { SessionQuery } from '../../login/state/index';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  constructor(private loginService: LoginService, public sessionQuery: SessionQuery) {}
 
-  constructor(
-    private loginService: LoginService,
-    public sessionQuery: SessionQuery
-  ) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   logout() {
     if (confirm('Are you sure to log out?')) {
       this.loginService.logout();
     }
   }
-
 }

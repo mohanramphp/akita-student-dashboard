@@ -13,18 +13,15 @@ interface Credentials {
   username: string;
   password: string;
 }
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class LoginDataService {
-
-  constructor() { }
+  constructor() {}
 
   getUser(cred: Credentials): Observable<User> {
-    return (cred.username === 'admin' && cred.password === 'admin')
-      ? timer(300).pipe(mapTo(user)) :
-      throwError('Invalid username or password');
+    return cred.username === 'admin' && cred.password === 'admin'
+      ? timer(300).pipe(mapTo(user))
+      : throwError('Invalid username or password');
   }
 }

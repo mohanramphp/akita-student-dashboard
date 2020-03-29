@@ -7,11 +7,7 @@ import { SessionQuery } from './login/state/index';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-
-  constructor(
-    private router: Router,
-    private sessionQuery: SessionQuery
-  ) { }
+  constructor(private router: Router, private sessionQuery: SessionQuery) {}
 
   canActivate(): boolean {
     if (this.sessionQuery.isLoggedIn()) {

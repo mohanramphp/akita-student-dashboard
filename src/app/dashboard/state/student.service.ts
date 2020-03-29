@@ -1,36 +1,33 @@
 import { Injectable } from '@angular/core';
-import { noop, ID } from '@datorama/akita';
+import { ID } from '@datorama/akita';
 import { StudentStore } from './student.store';
-import { StudentQuery } from './student.query';
-import { StudentDataService } from './student-data.service';
 import { Student } from './student.model';
 import { tap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { StudentDataService } from './student-data.service';
+import { StudentQuery } from './student.query';
+import { Observable, of } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({ providedIn: 'root' })
 export class StudentService {
-
   constructor(
-    private studentDataService: StudentDataService,
     private studentStore: StudentStore,
+    private studentDataService: StudentDataService,
     private studentQuery: StudentQuery
-  ) { }
+  ) {}
 
   getStudents(): Observable<Array<Student>> {
-    const request = this.studentDataService.getStudents().pipe(
-      tap(s => this.studentStore.set(s))
-    );
-    return this.studentQuery.isPristine ? request : noop(); // request
+    if (!this.studentQuery.getHasCache()) {
+      return this.studentDataService.getStudents().pipe(tap(s => this.studentStore.set(s)));
+    } else {
+      return of();
+    }
+  }
+
+  updateStudent(student: Partial<Student>) {
+    this.studentStore.upsert(student.id, student);
   }
 
   deleteStudent(id: ID) {
     this.studentStore.remove(id);
   }
-
-  updateStudent(student: Student) {
-    this.studentStore.createOrReplace(student.id, { ...student });
-  }
-
 }

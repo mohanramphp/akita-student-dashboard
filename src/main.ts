@@ -10,5 +10,6 @@ if (environment.production) {
   enableAkitaProdMode(); // In dev mode, Akita will deep freeze the store's value to avoid store mutations.
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.log(err));
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch(err => console.error(err));
